@@ -27,8 +27,8 @@ public class HttpAopAdviseDefine {
                 .getRequest();
 
         // 检查用户所传递的 token 是否合法
-        String token = getUserToken(request);
-        if (!token.equalsIgnoreCase("123456")) {
+        String token = getUserNameHeader(request);
+        if (!token.equalsIgnoreCase("admin")) {
             return "错误, 权限不合法!";
         }
 
@@ -46,6 +46,14 @@ public class HttpAopAdviseDefine {
             }
         }
         return "";
+    }
+
+    private String getUserNameHeader(HttpServletRequest request) {
+        String username = request.getHeader("username");
+        if (username == null) {
+            return "";
+        }
+        return username;
     }
 }
 
