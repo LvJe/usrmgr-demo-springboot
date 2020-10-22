@@ -2,6 +2,7 @@ package com.xiehaojie.usrmgr;
 
 import com.xiehaojie.usrmgr.dao.User;
 import com.xiehaojie.usrmgr.dao.UserMapper;
+import com.xiehaojie.usrmgr.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +36,15 @@ class UsrmgrApplicationTests {
     @Test
     public void testGetUserByAgeGap() throws Exception {
         List<User> users = userMapper.findByAgeGap(20, 21);
+        System.out.println("GetUsersSuc");
+    }
+
+    @Autowired
+    private UserService userService;
+
+    @Test
+    public void testUserServiceGetUser() {
+        List<User> u = userService.list();
         System.out.println("GetUsersSuc");
     }
 }
