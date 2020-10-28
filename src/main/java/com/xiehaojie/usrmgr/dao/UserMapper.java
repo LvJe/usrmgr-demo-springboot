@@ -25,7 +25,7 @@ public interface UserMapper {
     @Select("SELECT id,name,age,gender,address,phone_no,created_at,updated_at,is_deleted FROM user WHERE is_deleted = 0")
     List<User> findAll();
 
-    @Update("UPDATE user SET age=#{age},name=#{name},gender=#{gender},address=#{address},phone_no=#{phone_no} WHERE id=#{id}")
+    @Update("UPDATE user SET age=#{age},name=#{name},gender=#{gender},address=#{address},phone_no=#{phoneNo} WHERE id=#{id}")
     void update(User user);
 
 }
